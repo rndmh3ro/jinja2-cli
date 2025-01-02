@@ -304,7 +304,7 @@ def cli(opts, args):
             else:
                 format = "json"
     else:
-        path = os.path.join(os.environ["JINJA_INPUT_DATA_PATH"]) if os.environ["JINJA_INPUT_DATA_PATH"] else os.path.join(os.getcwd(), os.path.expanduser(data))
+        path = os.path.join(os.environ["JINJA_INPUT_DATA_PATH"]) if "JINJA_INPUT_DATA_PATH" in os.environ else os.path.join(os.getcwd(), os.path.expanduser(data))
         if format == "auto":
             ext = os.path.splitext(path)[1][1:]
             if has_format(ext):
